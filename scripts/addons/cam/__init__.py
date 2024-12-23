@@ -5,7 +5,12 @@ Import Modules, Register and Unregister  Classes
 
 # Python Standard Library
 import subprocess
+import site
 import sys
+
+user_site_pkgs = site.getusersitepackages()
+if user_site_pkgs not in sys.path:
+    sys.path.append(user_site_pkgs)
 
 # pip Wheels
 import shapely
